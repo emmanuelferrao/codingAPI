@@ -1,8 +1,9 @@
 document.addEventListener('DOMContentLoaded', () => {
     const searchButton = document.getElementById('search-button');
     const digimonResult = document.getElementById('digimon-result');
+    const searchInput = document.getElementById('digimon-name');
 
-    // Função para buscar Digimon específico
+    // Função para buscar Digimon específico pelo nome
     const fetchDigimon = (name) => {
         const url = 'https://digimon-api.vercel.app/api/digimon';
 
@@ -14,16 +15,13 @@ document.addEventListener('DOMContentLoaded', () => {
                 return response.json();
             })
             .then(data => {
-                // Certifique-se de que data é um array
                 if (!Array.isArray(data)) {
                     throw new Error('Expected an array of Digimons');
                 }
 
-                // Encontrar o Digimon correspondente ao nome fornecido
                 const digimon = data.find(d => d.name.toLowerCase() === name.toLowerCase());
 
                 if (digimon) {
-                    // Verifique se digimon contém as propriedades esperadas
                     if (digimon.name && digimon.level && digimon.img) {
                         digimonResult.innerHTML = `
                             <p><strong>Nome:</strong> ${digimon.name}</p>
@@ -43,9 +41,42 @@ document.addEventListener('DOMContentLoaded', () => {
             });
     };
 
-    // Evento de clique no botão de busca
+    // Função para exibir sugestões de Digimons enquanto o usuário digita
+    const displaySuggestions = (query) => {
+        const url = 'https://digimon-api.vercel.app/api/digimon';
+
+        fetch(url)
+            .then(response => response.json())
+            .then(data => {
+                if (!Array.isArray(data)) {
+                    throw new Error('Expected an array of Digimons');
+                }
+
+                const filteredDigimons = data.filter(digimon =>
+                    digimon.name.toLowerCase().includes(query.toLowerCase())
+                );
+
+                if (filteredDigimons.length > 0) {
+                    digimonResult.innerHTML = filteredDigimons.map(digimon => `
+                        <div style="border: 1px solid #ccc; padding: 10px; margin: 5px 0;">
+                            <p><strong>Nome:</strong> ${digimon.name}</p>
+                            <p><strong>Nível:</strong> ${digimon.level}</p>
+                            <img src="${digimon.img}" alt="${digimon.name}" style="width: 50px; height: auto;">
+                        </div>
+                    `).join('');
+                } else {
+                    digimonResult.innerHTML = `<p>Nenhum Digimon encontrado.</p>`;
+                }
+            })
+            .catch(error => {
+                console.error('Error fetching Digimon suggestions:', error);
+                digimonResult.innerHTML = `<p>Erro ao buscar sugestões de Digimon.</p>`;
+            });
+    };
+
+    // Evento para buscar Digimon ao clicar no botão
     searchButton.addEventListener('click', () => {
-        const digimonName = document.getElementById('digimon-name').value.trim();
+        const digimonName = searchInput.value.trim();
 
         if (digimonName) {
             fetchDigimon(digimonName);
@@ -54,18 +85,14 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    // Opcional: Buscar e exibir todos os Digimons ao carregar a página (se necessário)
-    // Se desejar apenas buscar um Digimon específico, remova este bloco.
-    const displayAllDigimons = () => {
-        fetch('https://digimon-api.vercel.app/api/digimon')
-            .then(response => response.json())
-            .then(data => {
-                // Mostrar todos os Digimons no console ou em outro lugar se necessário
-                console.log(data);
-            })
-            .catch(error => console.error('Error fetching all Digimons:', error));
-    };
+    // Evento para exibir sugestões enquanto o usuário digita
+    searchInput.addEventListener('input', function() {
+        const query = searchInput.value.trim();
 
-    // Uncomment the following line if you want to display all Digimons when the page loads
-    // displayAllDigimons();
+        if (query) {
+            displaySuggestions(query);
+        } else {
+            digimonResult.innerHTML = '';
+        }
+    });
 });

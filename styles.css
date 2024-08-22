@@ -1,3 +1,115 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+body {
+    height: 100vh;
+    font-family: 'Roboto', sans-serif;
+    background-color: #f0f0f0;
+    color: #333;
+    text-align: center;
+    margin: 0;
+    padding: 20px;
+    background-image: url("https://i.pinimg.com/originals/7a/c1/2a/7ac12a40004940eaad1232dfc90cb9b2.jpg");
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+}
+
+#above-title {
+    background-image: url("./img/133-1330149_attack-on-titan-png-hd-attack-on-titan_2d28b45b-15c2-4c72-96c5-d9e2fac4ec1b_1200x1200-removebg-preview.png");
+    background-repeat: no-repeat;
+    background-position: 50%;
+}
+
 h1 {
+    height: 20%;
+    color: black;
+    margin-bottom: 70px;
+    font-family: 'Roboto';
+}
+
+/* Estilo do rótulo e do campo de entrada */
+label {
+    font-weight: bold;
+    font-family: 'Roboto';
+}
+
+input[type="text"] {
+    padding: 10px;
+    font-size: 16px;
+    border: 2px solid #ccc;
+    border-radius: 5px;
+    margin-right: 10px;
+    width: 300px;
+}
+
+/* Estilo do botão de busca */
+button#search-button {
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #0bb6f1;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+} 
+
+button#search-button:hover {
+    background-color: #ff5722;
+    transition: 1s;
+}
+
+/* Estilo do resultado dentro do digivice */
+#digimon-result {
+    background-color: #367387;
     display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 50;
+    background-image: url('https://cdn2.steamgriddb.com/hero_thumb/6fad521eccb011f87db75444e82f0b70.jpg'); 
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 300px;
+    height: 400px;
+    border: 3px solid #000;
+    border-radius: 20px;
+    margin: 20px auto;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 5px 5px 3px;
+}
+
+/* Estilo para a área de rolagem dentro do digivice */
+#digimon-result {
+    overflow-y: auto; /* Adiciona rolagem vertical */
+    padding-top: 130px; /* Ajusta o padding superior para que os conteúdos fiquem abaixo da parte superior do digivice */
+    box-sizing: border-box; /* Inclui o padding na altura total */
+}
+
+/* Estilo para cada card de Digimon */
+#digimon-result div {
+    background-color: rgba(255, 255, 255, 0.8);
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 10px;
+    text-align: center;
+    width: 80%;
+}
+
+#digimon-result img {
+    width: 80px;
+    height: auto;
+    margin-bottom: 10px;
+}
+
+/* Ajuste do texto dentro dos cards */
+#digimon-result p {
+    margin: 5px 0;
+    font-weight: bold;
+    font-family: 'Arial', sans-serif;
+    color: #333;
+}
+
+/* Estilo do subtítulo do resultado */
+h2 {
+    margin-top: 40px;
+    color: #ff5722;
 }
