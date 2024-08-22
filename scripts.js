@@ -3,7 +3,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const digimonResult = document.getElementById('digimon-result');
     const searchInput = document.getElementById('digimon-name');
 
-    // Função para buscar Digimon específico pelo nome
+ 
     const fetchDigimon = (name) => {
         const url = 'https://digimon-api.vercel.app/api/digimon';
 
