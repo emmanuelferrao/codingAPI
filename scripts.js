@@ -41,7 +41,7 @@ document.addEventListener('DOMContentLoaded', () => {
             });
     };
 
-    // Função para exibir sugestões de Digimons enquanto o usuário digita
+    
     const displaySuggestions = (query) => {
         const url = 'https://digimon-api.vercel.app/api/digimon';
 
@@ -74,7 +74,7 @@ document.addEventListener('DOMContentLoaded', () => {
             });
     };
 
-    // Evento para buscar Digimon ao clicar no botão
+    
     searchButton.addEventListener('click', () => {
         const digimonName = searchInput.value.trim();
 
@@ -85,7 +85,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    // Evento para exibir sugestões enquanto o usuário digita
+    
     searchInput.addEventListener('input', function() {
         const query = searchInput.value.trim();
 

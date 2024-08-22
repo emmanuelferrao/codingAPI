@@ -26,7 +26,6 @@ h1 {
     font-family: 'Roboto';
 }
 
-/* Estilo do rótulo e do campo de entrada */
 label {
     font-weight: bold;
     font-family: 'Roboto';
@@ -41,7 +40,6 @@ input[type="text"] {
     width: 300px;
 }
 
-/* Estilo do botão de busca */
 button#search-button {
     padding: 10px 20px;
     font-size: 16px;
@@ -57,14 +55,14 @@ button#search-button:hover {
     transition: 1s;
 }
 
-/* Estilo do resultado dentro do digivice */
 #digimon-result {
     background-color: #367387;
     display: flex;
     flex-direction: column;
     align-items: center;
     padding: 50;
-    background-image: url('https://cdn2.steamgriddb.com/hero_thumb/6fad521eccb011f87db75444e82f0b70.jpg'); 
+    background-image: url('https://i.pinimg.com/originals/ce/09/21/ce09215bf2021e5fc98f1b679bb79913.jpg'); 
+    background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
     width: 300px;
@@ -77,14 +75,14 @@ button#search-button:hover {
     box-shadow: 5px 5px 3px;
 }
 
-/* Estilo para a área de rolagem dentro do digivice */
+
 #digimon-result {
-    overflow-y: auto; /* Adiciona rolagem vertical */
-    padding-top: 130px; /* Ajusta o padding superior para que os conteúdos fiquem abaixo da parte superior do digivice */
-    box-sizing: border-box; /* Inclui o padding na altura total */
+    overflow-y: auto;
+    padding-top: 20px;
+    box-sizing: border-box;
 }
 
-/* Estilo para cada card de Digimon */
+
 #digimon-result div {
     background-color: rgba(255, 255, 255, 0.8);
     padding: 10px;
@@ -95,21 +93,14 @@ button#search-button:hover {
 }
 
 #digimon-result img {
-    width: 80px;
+    width: 150px;
     height: auto;
     margin-bottom: 10px;
 }
 
-/* Ajuste do texto dentro dos cards */
 #digimon-result p {
     margin: 5px 0;
     font-weight: bold;
-    font-family: 'Arial', sans-serif;
-    color: #333;
-}
-
-/* Estilo do subtítulo do resultado */
-h2 {
-    margin-top: 40px;
-    color: #ff5722;
+    font-family: 'Roboto', sans-serif;
+    color: #367387;
 }
