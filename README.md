@@ -1,2 +1,2 @@
 # codingAPI
-Apenas testando o uso de uma api.
+Projetado para consumir uma API de Digimons que trazem: Nome, Foto e nível.
