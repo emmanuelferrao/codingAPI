@@ -1,2 +1,2 @@
 # codingAPI
-Projetado para consumir uma API de Digimons que trazem: Nome, Foto e nível.
+Apelidado de Hack Digivice, o codingAPI é apenas um projeto feito para consumir uma API de Digimons com o intuito de retornar: Nome, imagem e nível do Digimon.
