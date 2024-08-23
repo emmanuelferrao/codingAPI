@@ -55,6 +55,10 @@ button#search-button:hover {
     transition: 1s;
 }
 
+h2 {
+    padding-top: 80px;
+}
+
 #digimon-result {
     background-color: #367387;
     display: flex;
@@ -78,7 +82,7 @@ button#search-button:hover {
 
 #digimon-result {
     overflow-y: auto;
-    padding-top: 20px;
+    padding-top: 70px;
     box-sizing: border-box;
 }
 
