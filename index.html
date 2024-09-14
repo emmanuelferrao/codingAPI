@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="manifest" href="manifest.json">
     <link rel="stylesheet" type="text/css" href="styles.css" media="screen" />
     <link rel="shortcut icon" href="https://static.wikia.nocookie.net/digimonat/images/5/5c/DigiVice_%28Adventure%29.png/revision/latest/scale-to-width-down/328?cb=20210928131616&amp;path-prefix=pt" type="image/x-icon">
     <title>Hack Digivice</title>
@@ -18,5 +19,16 @@
 
  
     <script src="scripts.js"></script>
+    <script>
+        if('serviceWorker' in navigator) {
+            window.addEventListener('load', function() {
+                navigator.serviceWorker.register('/service-worker.js').then(function(registration) {
+                    console.log('ServiceWorker registration successful with scope: ', registration.scope);
+                }, function(error) {
+                    console.log('ServiceWorker registration failed: ', error);
+                });    
+            });
+        }
+    </script>
 </body>
 </html>
